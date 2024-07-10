@@ -1,0 +1,98 @@
+<div
+  class="carousel-container"
+  style="position: relative; width: 60%; overflow: hidden; margin: 20px auto"
+>
+  <button
+    class="arrow left-arrow"
+    id="prev"
+    style="
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      left: 10px;
+    "
+  >
+    &lt;
+  </button>
+  <div
+    class="carousel"
+    id="carousel"
+    style="display: flex; transition: transform 0.5s ease"
+  >
+    <img
+      src="wp-content/images/company1.png"
+      alt="Image 1"
+      style="width: 33.33%; flex: 1 0 auto"
+    />
+    <img
+      src="wp-content/images/company2.png"
+      alt="Image 2"
+      style="width: 33.33%; flex: 1 0 auto"
+    />
+    <img
+      src="wp-content/images/company3.png"
+      alt="Image 3"
+      style="width: 33.33%; flex: 1 0 auto"
+    />
+    <img
+      src="wp-content/images/compnay4.png"
+      alt="Image 4"
+      style="width: 33.33%; flex: 1 0 auto"
+    />
+  </div>
+  <button
+    class="arrow right-arrow"
+    id="next"
+    style="
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      right: 10px;
+    "
+  >
+    &gt;
+  </button>
+</div>
+
+<script>
+  const carousel = document.getElementById("carousel");
+  const images = document.querySelectorAll(".carousel img");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+  let index = 0;
+
+  function updateCarousel() {
+    if (index < 0) {
+      index = images.length - 3;
+    }
+    if (index >= images.length) {
+      index = 0;
+    }
+    carousel.style.transform = `translateX(-${index * 33.33}%)`;
+  }
+
+  prev.addEventListener("click", () => {
+    index--;
+    updateCarousel();
+  });
+
+  next.addEventListener("click", () => {
+    index++;
+    updateCarousel();
+  });
+
+  setInterval(() => {
+    index++;
+    updateCarousel();
+  }, 3000); // Auto-advance every 3 seconds
+</script>
