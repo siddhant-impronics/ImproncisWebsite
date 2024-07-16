@@ -142,7 +142,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 </head>
 
-<body class="home page-template page-template-header-footer page page-id-7 wp-custom-logo wp-embed-responsive">
+<body class="Home-template page-template-header-footer page page-id-7 wp-custom-logo wp-embed-responsive">
 
 <div class="">
 
@@ -189,10 +189,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 										<div class="wp-block-navigation__responsive-container-content" id="modal-1-content">
 											<ul class="wp-block-navigation__container has-text-color has-font-primary-color has-text-xs-font-size is-responsive items-justified-left wp-block-navigation has-text-xs-font-size">
 												
-												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./index.html"><span class="wp-block-navigation-item__label">Home Page</span></a></li>
+												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./index.html"><span class="wp-block-navigation-item__label">Home</span></a></li>
 												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./services/index.html"><span class="wp-block-navigation-item__label">Our Service</span></a></li>
 												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./industries/index.html"><span class="wp-block-navigation-item__label">Industries</span></a></li>
-												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./index.html"><span class="wp-block-navigation-item__label">Engagement Model</span></a></li>
+												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./engagementmodel/index.html"><span class="wp-block-navigation-item__label">Engagement Model</span></a></li>
 												<li class="has-text-xs-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content"  href="./about/index.html"><span class="wp-block-navigation-item__label">About Us</span></a></li>
 												
 										</div>
@@ -348,7 +348,82 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="wp-block-group alignfull pb__18 is-layout-flow wp-block-group-is-layout-flow">
 <div class="wp-block-ainoblocks-grid-container alignwide ab-grid-block col-gap-l">
 <div class="wp-block-ainoblocks-grid-item col_start_d__3 col_end_d__11 col_start_t__2 col_end_t__12 col_start_m__1 col_end_m__13 justify-self__stretch no-stacking align-self__start pb__11">
-<h2 class="has-text-align-center has-font-primary-color has-text-color has-text-l-font-size wp-block-heading">We work with the following partners</h2>
+<h2 class="has-text-align-center has-font-primary-color has-text-color has-text-l-font-size wp-block-heading "  style="margin-bottom: 12%;margin-top: 12%;" >We work with the following partners</h2>
+
+<style>
+
+        .carousel-container {
+			/* left: 10%; */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 20%;
+            box-sizing: border-box;
+        }
+        .carousel-item img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+
+</style>
+
+<div class="carousel-container">
+    <div class="carousel-track">
+        <div class="carousel-item"><img src="./wp-content/images/company1.png" alt="Image 1"></div>
+        <div class="carousel-item"><img src="./wp-content/images/company2.png" alt="Image 2"></div>
+        <div class="carousel-item"><img src="./wp-content/images/company3.png" alt="Image 3"></div>
+        <div class="carousel-item"><img src="./wp-content/images/compnay4.png" alt="Image 4"></div>
+        <!-- <div class="carousel-item"><img src="./wp-content/images/company1.png" alt="Image 5"></div> -->
+        <!-- Duplicate the first few images to create a seamless loop -->
+
+
+		<div class="carousel-item"><img src="./wp-content/images/company1.png" alt="Image 1"></div>
+        <div class="carousel-item"><img src="./wp-content/images/company2.png" alt="Image 2"></div>
+		<div class="carousel-item"><img src="./wp-content/images/company3.png" alt="Image 3"></div>
+        <div class="carousel-item"><img src="./wp-content/images/compnay4.png" alt="Image 4"></div>
+        <div class="carousel-item"><img src="./wp-content/images/company1.png" alt="Image 5"></div>
+        <!-- <div class="carousel-item"><img src="./wp-content/images/company1.png" alt="Image 1"></div>
+        <div class="carousel-item"><img src="./wp-content/images/company2.png" alt="Image 2"></div> -->
+    </div>
+</div>
+
+
+
+<script>
+    let index = 0;
+    const intervalTime = 2000; // Time in milliseconds
+
+    function moveCarousel() {
+        const track = document.querySelector('.carousel-track');
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        index++;
+
+        if (index >= totalItems - 5) {
+            track.style.transition = 'none';
+            track.style.transform = 'translateX(0)';
+            index = 0;
+            setTimeout(() => {
+                track.style.transition = 'transform 1s ease-in-out';
+                track.style.transform = `translateX(-${index * 20}%)`;
+            }, 50);
+        } else {
+            track.style.transform = `translateX(-${index * 20}%)`;
+        }
+    }
+
+    window.onload = () => setInterval(moveCarousel, intervalTime);
+</script>
+
+
 </div>
 
 
@@ -356,7 +431,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
   <!-- <img src="wp-content/images/company1.png" alt="Image 1" style="width: 33.33%; flex: 1 0 auto;"> -->
-
+<!-- 
 <div class="wp-block-ainoblocks-grid-item col_start_d__2 col_end_d__4 col_start_t__2 col_end_t__4 col_start_m__1 col_end_m__7 justify-self__stretch no-stacking align-self__start">
 <figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="735" height="144" src="wp-content/images/company1.png" alt="shape" class="wp-image-228" sizes="(max-width: 735px) 100vw, 735px" /></figure>
 </div>
@@ -383,7 +458,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="wp-block-ainoblocks-grid-item col_start_d__10 col_end_d__12 col_start_t__10 col_end_t__12 col_start_m__1 col_end_m__7 justify-self__stretch no-stacking mt_t__0 mt_m__4 align-self__start">
 <figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="735" height="144" src="wp-content/images/company1.png" alt="" class="wp-image-236"  sizes="(max-width: 735px) 100vw, 735px" /></figure>
-</div>
+</div> -->
 </div>
 </div>
 
@@ -627,7 +702,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<div class="wp-block-group alignfull has-variant-background-primary-background-color has-background pt__18 pb__18 is-layout-flow wp-block-group-is-layout-flow">
+<!-- <div class="wp-block-group alignfull has-variant-background-primary-background-color has-background pt__18 pb__18 is-layout-flow wp-block-group-is-layout-flow">
 <div class="wp-block-ainoblocks-grid-container alignwide ab-grid-block col-gap-l">
 <div class="wp-block-ainoblocks-grid-item col_start_d__4 col_end_d__10 col_start_t__2 col_end_t__12 col_start_m__1 col_end_m__13 justify-self__stretch no-stacking align-self__start">
 <p class="has-text-align-center has-variant-accent-primary-color has-text-color has-text-xxs-font-size pt__1" style="font-style:normal;font-weight:700;letter-spacing:2px;text-transform:uppercase">Recent Highlights</p>
@@ -675,7 +750,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </li></ul></section>
 </div>
 </div>
-</div>
+</div> -->
 
 
 
