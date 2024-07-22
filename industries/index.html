@@ -2548,6 +2548,7 @@
      
         .card-section {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             padding: 20px;
             box-sizing: border-box;
@@ -2588,6 +2589,21 @@
         .card:hover {
             transform: translateY(-10px);
         }
+
+
+    
+    @media (max-width: 768px) {
+        .card {
+            max-width: 100%; /* Full width for each card on small screens */
+            margin-right: 0; /* Remove margin on small screens */
+            /* margin-bottom: 20px; */
+            margin: 10px;
+             /* Add margin at the bottom */
+        }
+        .card:last-child {
+            margin-bottom: 0; /* Remove bottom margin from last card */
+        }
+      }
     </style>
       
 
@@ -2613,6 +2629,36 @@
             <p>At Impronics, we redefine the possibilities in the real estate industry by offering comprehensive software development solutions.</p>
         </div>
     </section>
+
+
+    <section class="card-section" style="padding: 5%;">
+      <div class="card">
+          <img src="../wp-content/images/banking.jpeg" alt="Description of card image">
+          <h3>Banking, Insurance ,and Financial Services</h3>
+          <p>At Impronics, we deliver innovative software solutions for the financial industry, addressing complex needs with advanced technology to propel your business forward in an ever-evolving market.</p>
+      </div>
+      <div class="card">
+          <img src="../wp-content/images/transportaion.webp" alt="Description of card image">
+          <h3>Transportation</h3>
+          <p>As a leading provider in the transportation industry, Impronics transportation software development solutions uniquely cater to the industry’s.</p>
+      </div>
+      <div class="card">
+          <img src="../wp-content/images/healthcare.jpeg" alt="Description of card image">
+          <h3>Healthcare</h3>
+          <p>At Impronics, we redefine the possibilities in the real estate industry by offering comprehensive software development solutions.</p>
+      </div>
+
+      <div class="card">
+        <img src="../wp-content/images/games.png" alt="Description of card image">
+        <h3>Information Technology</h3>
+        <p>Impronics delivers innovative, scalable, and secure software solutions, including mobile apps, web applications, system software, and embedded systems, ensuring high-quality, user-centric development.</p>
+    </div>
+      <!-- <div class="card">
+          <img src="../wp-content/images/retail.jpeg" alt="Description of card image">
+          <h3>Retail</h3>
+          <p>At Impronics, we redefine the possibilities in the real estate industry by offering comprehensive software development solutions.</p>
+      </div> -->
+  </section>
 
 
 
